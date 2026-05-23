@@ -103,7 +103,7 @@ function Home() {
               <span className="text-2xl">📞</span>
               <div>
                 <p className="font-bold text-gray-700">Phone</p>
-                <p className="text-gray-500">+977 9800000000</p>
+                <p className="text-gray-500">+977 9876543210</p>
               </div>
             </div>
             <div className="flex items-center gap-4 bg-pink-50 p-4 rounded-xl">
