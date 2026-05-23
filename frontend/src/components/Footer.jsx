@@ -24,7 +24,7 @@ function Footer() {
           <h4 className="font-bold text-lg mb-4">Contact Us</h4>
           <div className="flex flex-col gap-2 text-gray-400">
             <p>📍 Lakeside, Pokhara, Nepal</p>
-            <p>📞 +977 9800000000</p>
+            <p>📞 +977 987654321</p>
             <p>✉️ glamour@salon.com</p>
             <p>🕐 Mon-Sat: 9AM - 7PM</p>
           </div>
