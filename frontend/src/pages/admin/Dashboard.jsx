@@ -31,6 +31,16 @@ function Dashboard() {
             <a href="/admin/dashboard" className="hover:text-pink-300">Dashboard</a>
             <a href="/admin/services" className="hover:text-pink-300">Services</a>
             <a href="/admin/appointments" className="hover:text-pink-300">Appointments</a>
+              <a 
+                href="#"
+                onClick={() => {
+                localStorage.removeItem("isAdmin")
+                window.location.href = "/admin"
+                }}
+                className="hover:text-pink-300 ml-auto cursor-pointer"
+            >
+                Logout
+            </a>
             </div>
 
             <div className="max-w-6xl mx-auto px-4 py-16">

@@ -15,6 +15,7 @@ function Login() {
       password: password
     }, { withCredentials: true })
     .then(() => {
+      localStorage.setItem("isAdmin", "true")
       navigate("/admin/dashboard")
     })
     .catch(() => {

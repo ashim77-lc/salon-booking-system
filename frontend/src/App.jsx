@@ -10,6 +10,7 @@ import ManageServices from "./pages/admin/ManageServices"
 import ManageAppointments from "./pages/admin/ManageAppointments"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
   useEffect(() => {
@@ -31,9 +32,10 @@ function App() {
         <Route path="/book" element={<BookAppointment />} />
         <Route path="/my-booking" element={<MyBooking />} />
         <Route path="/admin" element={<Login />} />
-        <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/services" element={<ManageServices />} />
-        <Route path="/admin/appointments" element={<ManageAppointments />} />
+        <Route path="/admin/dashboard" element={
+        <ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/admin/services" element={<ProtectedRoute><ManageServices /></ProtectedRoute>} />
+        <Route path="/admin/appointments" element={<ProtectedRoute><ManageAppointments /></ProtectedRoute>} />
       </Routes>
       <Footer />
     </BrowserRouter>
