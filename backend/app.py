@@ -8,12 +8,10 @@ from database import init_db
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
-CORS(app, resources={
-    r"/api/*": {
-        "origins": "http://localhost:5173",
-        "supports_credentials": True
-    }
-})
+CORS(app, supports_credentials=True, origins=[
+    "http://localhost:5173",
+    "https://magenta-gumption-399567.netlify.app"
+])
 
 init_db()
 
