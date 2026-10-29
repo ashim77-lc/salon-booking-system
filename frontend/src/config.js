@@ -1,2 +1,4 @@
-const API_URL = "https://ashimsalon.pythonanywhere.com"
+const API_URL = import.meta.env.DEV
+  ? "http://localhost:5000"
+  : "https://salon-booking-system.onrender.com";
 export default API_URL
