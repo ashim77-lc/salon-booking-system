@@ -8,6 +8,10 @@ from database import init_db
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
+app.config.update(
+    SESSION_COOKIE_SAMESITE="None",
+    SESSION_COOKIE_SECURE=True,
+)
 CORS(app, supports_credentials=True, origins=[
     "http://localhost:5173",
     "https://glamoursalon-np.netlify.app"
