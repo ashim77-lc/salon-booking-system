@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "salon.db")
 
+
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -64,16 +65,20 @@ def init_db():
 
     cursor.execute("SELECT COUNT(*) FROM users")
     if cursor.fetchone()[0] == 0:
-        admin_user = os.environ.get("ADMIN_USERNAME", "admin")
-        admin_pass = os.environ.get("ADMIN_PASSWORD", "change-me-123")
-        cursor.execute(
-            "INSERT INTO users (username, password) VALUES (?, ?)",
-            (admin_user, generate_password_hash(admin_pass)),
-        )
+        admin_user = os.environ.get("ADMIN_USERNAME")
+        admin_pass = os.environ.get("ADMIN_PASSWORD")
+        if admin_user and admin_pass:
+            cursor.execute(
+                "INSERT INTO users (username, password) VALUES (?, ?)",
+                (admin_user, generate_password_hash(admin_pass)),
+            )
+        else:
+            print("ADMIN_USERNAME / ADMIN_PASSWORD not set - no admin created.")
 
     conn.commit()
     conn.close()
     print("Database initialized successfully!")
+
 
 if __name__ == "__main__":
     init_db()
